@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dls4xklll13im"]
+
+[ext_resource type="Script" uid="uid://bj14p26yoo2gf" path="res://game_system/GameSystem.gd" id="1_cx3ds"]
+
+[node name="GameSystem" type="Node"]
+script = ExtResource("1_cx3ds")

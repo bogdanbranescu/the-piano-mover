@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhbwwxip2moun"]
+
+[ext_resource type="Script" uid="uid://cmoej8tagrd67" path="res://world/World.gd" id="1_jeodi"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_jeodi")
+
+[node name="CanvasUI" type="CanvasLayer" parent="."]
