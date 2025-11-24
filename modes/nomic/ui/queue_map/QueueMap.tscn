@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://i1hkkcdws0av"]
+
+[ext_resource type="PackedScene" uid="uid://ccyjo7dvoukl3" path="res://modes/nomic/ui/queue_map/entities/PlayerPiece.tscn" id="1_bkuq3"]
+[ext_resource type="Script" uid="uid://c0mardim5og16" path="res://modes/nomic/ui/queue_map/QueueMap.gd" id="1_n4tkx"]
+[ext_resource type="PackedScene" uid="uid://c44ohhmurrbrd" path="res://modes/nomic/ui/queue_map/entities/PlayerPiece2.tscn" id="2_w0exf"]
+[ext_resource type="Texture2D" uid="uid://cumh336u3mrq6" path="res://modes/nomic/ui/queue_map/sprites/board-background.ase" id="4_3vgcy"]
+[ext_resource type="Script" uid="uid://brejlrr7adilm" path="res://modes/nomic/ui/queue_map/QueueMapBackground.gd" id="4_j1b2j"]
+[ext_resource type="SpriteFrames" uid="uid://otr87iq0at5d" path="res://modes/nomic/ui/queue_map/sprites/indicator-current-player.ase" id="4_su5fv"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hyjh4"]
+resource_name = "Pieces"
+scenes/3/scene = ExtResource("1_bkuq3")
+scenes/5/scene = ExtResource("2_w0exf")
+
+[sub_resource type="TileSet" id="TileSet_n4tkx"]
+tile_size = Vector2i(30, 30)
+sources/0 = SubResource("TileSetScenesCollectionSource_hyjh4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5odf8"]
+texture = ExtResource("4_3vgcy")
+texture_region_size = Vector2i(30, 30)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j1b2j"]
+tile_size = Vector2i(30, 30)
+sources/1 = SubResource("TileSetAtlasSource_5odf8")
+
+[node name="QueueMap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_n4tkx")
+script = ExtResource("1_n4tkx")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_j1b2j")
+script = ExtResource("4_j1b2j")
+
+[node name="Overlay" type="Node2D" parent="."]
+
+[node name="CurrentIndicator" type="AnimatedSprite2D" parent="Overlay"]
+sprite_frames = ExtResource("4_su5fv")
+centered = false

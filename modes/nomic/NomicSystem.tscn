@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dls4xklll13im"]
+
+[ext_resource type="Script" uid="uid://bfs0ib2lnj2el" path="res://modes/nomic/NomicSystem.gd" id="1_skamr"]
+
+[node name="NomicSystem" type="Node"]
+script = ExtResource("1_skamr")

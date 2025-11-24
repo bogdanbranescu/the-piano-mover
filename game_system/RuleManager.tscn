@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfci3wtcjyoud"]
-
-[ext_resource type="Script" uid="uid://244dqgkvrh71" path="res://game_system/RuleManager.gd" id="1_mqxot"]
-
-[node name="RuleManager" type="Node"]
-script = ExtResource("1_mqxot")

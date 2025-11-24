@@ -1,6 +1,13 @@
 extends Node
 
 
+enum GAME_MODE {
+    NOMIC,
+    ADVENTURE,
+    CITYBUILDER,
+}
+
+
 enum CHARACTERS {
 	A,
 	B,
