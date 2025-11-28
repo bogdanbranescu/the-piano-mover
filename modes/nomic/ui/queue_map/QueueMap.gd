@@ -8,7 +8,7 @@ extends TileMapLayer
 func _ready() -> void:
 	# TODO integrate animation, waiting, etc (only when running with UI)
 	Global.NomicSystem.Board.updated.connect(load_board_data)
-	
+
 
 func get_map_data() -> Array:
 	var all_tile_data = tile_map_data
@@ -31,7 +31,7 @@ func load_board_data(board_data: Array[Array]) -> void:
 
 	tile_map_data = expanded_board_data
 
-	queue_redraw()
+	position = - Vector2i(Global.BOARD_SIZE.x, Global.BOARD_SIZE.y) * tile_set.tile_size * 0.5
 
 
 func get_entity(at: Vector2i) -> Variant:
@@ -47,16 +47,6 @@ func move_entity(from: Vector2i, to: Vector2i) -> bool:
 		set_entity(from)
 		return true
 	return false
-
-
-func _draw():
-	var order_queue = Global.NomicSystem.Board.turn_order.order_queue
-	for i in range(order_queue.size() - 1):
-		draw_line(
-			30 * Vector2(order_queue[i][0], order_queue[i][1]) + 15 * Vector2.ONE,
-			30 * Vector2(order_queue[i + 1][0], order_queue[i + 1][1]) + 15 * Vector2.ONE,
-			Color.WHITE
-		)
 
 
 # TODO later

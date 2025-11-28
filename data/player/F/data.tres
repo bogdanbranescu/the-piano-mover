@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://djrpsd7w8a5gm"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://djrpsd7w8a5gm"]
 
 [ext_resource type="Script" uid="uid://cpo6hyjtbohww" path="res://data/PlayerData.gd" id="1_xpv1r"]
+[ext_resource type="Texture2D" uid="uid://dy34pypxdk0xa" path="res://data/player/F/board-piece.ase" id="1_yswnb"]
 
 [resource]
 script = ExtResource("1_xpv1r")
 id = 5
 player_name = "FFF"
+board_piece = ExtResource("1_yswnb")
 metadata/_custom_type_script = "uid://cpo6hyjtbohww"

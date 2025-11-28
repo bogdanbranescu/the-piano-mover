@@ -18,16 +18,20 @@ func _ready() -> void:
 	turn_order = TurnOrderSystem.new()
 
 	# TESTING
-	set_entity(1, 1, 5)
-	set_entity(5, 1, 3)
-	set_entity(2, 5, 3)
-	set_entity(4, 4, 5)
+	set_entity(0, 1, 0)
+	set_entity(1, 1, 1)
+	set_entity(2, 1, 2)
+	set_entity(3, 1, 3)
+	set_entity(4, 1, 4)
+	set_entity(5, 1, 5)
 
 	Debug.input_u.connect(updated.emit.bind(board_data))
 	Debug.input_i.connect(turn_order.compute.bind(board_data))
 
-	await get_tree().create_timer(2.0).timeout
-	move_entity(1, 2, 2, 2)
+
+func setup_players(player_selection: Array):
+	for character_index in player_selection:
+		set_entity(1, 1, character_index)
 
 
 func get_entity(row: int, col: int) -> int:

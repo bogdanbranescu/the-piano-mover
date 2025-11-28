@@ -22,6 +22,10 @@ var active_players: Array
 
 func _ready() -> void:
 	init_players()
+
+
+func init_players() -> Array:
+	# TODO Load player_selection from some meta-progression state tracker
 	var all_players = player_selection.duplicate()
 	assign_active_players(all_players)
 	init_queue()
@@ -29,13 +33,13 @@ func _ready() -> void:
 	print(active_players)
 	print(queue)
 
-
-func init_players() -> void:
 	for p in player_selection:
 		var data = load(Global.data_paths.players + Global.player_data[p])
 		var new_player = Player.new()
 		new_player.data = data
 		players.add_child(new_player)
+	
+	return player_selection as Array
 
 
 func assign_active_players(available_players) -> void:

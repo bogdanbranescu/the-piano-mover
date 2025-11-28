@@ -3,12 +3,13 @@ extends Node
 
 @onready var Board: Node
 
-
 @onready var required = {
 	"BoardSystem": [BoardSystem, "."],
 	"PlayerManager": [Global.system_paths.player_manager_path, "."],
 	"RuleManager": [Global.system_paths.rule_manager_path, "."],
 }
+
+var TURN_LIMIT := 5
 
 var night_idx := 0
 var turn_idx := 0
@@ -40,25 +41,36 @@ func init_systems() -> void:
 func start_night() -> void:
 	print("NIGHT ", night_idx)
 	
+	var player_selection = get_node("PlayerManager").init_players()
+	Board.setup_players(player_selection)
+
 	turn_idx = 0
 	start_turn()
+
+	EventBusNomic.night_started.emit()
 	
 
 func start_turn() -> void:
 	print("\tTURN  ", turn_idx)
 
+	EventBusNomic.turn_started.emit()
+
 
 func end_turn() -> void:
 	turn_idx += 1
-	if turn_idx >= 5:
+	if turn_idx >= TURN_LIMIT:
 		end_night()
 		return
 	start_turn()
+
+	EventBusNomic.turn_ended.emit()
 
 
 func end_night() -> void:
 	night_idx += 1
 	start_night()
+
+	EventBusNomic.night_ended.emit()
 
 
 func _process(delta: float) -> void:

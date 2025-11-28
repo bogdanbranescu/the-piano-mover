@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://i1hkkcdws0av"]
+[gd_scene load_steps=12 format=3 uid="uid://i1hkkcdws0av"]
 
 [ext_resource type="PackedScene" uid="uid://ccyjo7dvoukl3" path="res://modes/nomic/ui/queue_map/entities/PlayerPiece.tscn" id="1_bkuq3"]
 [ext_resource type="Script" uid="uid://c0mardim5og16" path="res://modes/nomic/ui/queue_map/QueueMap.gd" id="1_n4tkx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cumh336u3mrq6" path="res://modes/nomic/ui/queue_map/sprites/board-background.ase" id="4_3vgcy"]
 [ext_resource type="Script" uid="uid://brejlrr7adilm" path="res://modes/nomic/ui/queue_map/QueueMapBackground.gd" id="4_j1b2j"]
 [ext_resource type="SpriteFrames" uid="uid://otr87iq0at5d" path="res://modes/nomic/ui/queue_map/sprites/indicator-current-player.ase" id="4_su5fv"]
+[ext_resource type="PackedScene" uid="uid://dcockya84vv7x" path="res://modes/nomic/ui/queue_map/GridMap.tscn" id="7_5odf8"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hyjh4"]
 resource_name = "Pieces"
@@ -27,6 +28,7 @@ tile_size = Vector2i(30, 30)
 sources/1 = SubResource("TileSetAtlasSource_5odf8")
 
 [node name="QueueMap" type="TileMapLayer"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0)
 tile_set = SubResource("TileSet_n4tkx")
 script = ExtResource("1_n4tkx")
 
@@ -39,3 +41,5 @@ script = ExtResource("4_j1b2j")
 [node name="CurrentIndicator" type="AnimatedSprite2D" parent="Overlay"]
 sprite_frames = ExtResource("4_su5fv")
 centered = false
+
+[node name="GridMap" parent="." instance=ExtResource("7_5odf8")]

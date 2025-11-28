@@ -5,6 +5,7 @@ class_name TurnOrderSystem
 signal updated
 
 var order_queue = []
+var current_player
 
 
 func _ready() -> void:

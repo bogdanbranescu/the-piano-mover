@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://yvyfmdk6egpp"]
+[gd_scene load_steps=6 format=3 uid="uid://yvyfmdk6egpp"]
 
 [ext_resource type="Script" uid="uid://d04hntgppe7xo" path="res://modes/nomic/ui/NomicUI.gd" id="1_e7kp2"]
+[ext_resource type="Script" uid="uid://khe0w3fsb8gg" path="res://modes/nomic/ui/hud/InfoBar.gd" id="2_fqayg"]
+[ext_resource type="Script" uid="uid://psde1l1op4gb" path="res://modes/nomic/ui/hud/TurnActionsUI.gd" id="3_fqayg"]
+[ext_resource type="PackedScene" uid="uid://dcockya84vv7x" path="res://modes/nomic/ui/queue_map/GridMap.tscn" id="3_n52qq"]
 [ext_resource type="PackedScene" uid="uid://i1hkkcdws0av" path="res://modes/nomic/ui/queue_map/QueueMap.tscn" id="3_npmvc"]
 
 [node name="NomicUI" type="Control"]
@@ -20,29 +23,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InitiativeOrder" type="Control" parent="Container"]
+[node name="InfoBarContainer" type="Control" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InfoBar" type="HBoxContainer" parent="Container/InfoBarContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = ExtResource("2_fqayg")
+
+[node name="Night" type="HBoxContainer" parent="Container/InfoBarContainer/InfoBar"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Container/InitiativeOrder"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Name" type="RichTextLabel" parent="Container/InfoBarContainer/InfoBar/Night"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "Night"
+
+[node name="Value" type="RichTextLabel" parent="Container/InfoBarContainer/InfoBar/Night"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="Turn" type="HBoxContainer" parent="Container/InfoBarContainer/InfoBar"]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="Container/InfoBarContainer/InfoBar/Turn"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "Turn"
+
+[node name="Value" type="RichTextLabel" parent="Container/InfoBarContainer/InfoBar/Turn"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="InitiativeDisplay" type="Control" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Players" type="HBoxContainer" parent="Container/InitiativeDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Board" type="Control" parent="Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
+[node name="GridMap" parent="Container/Board" instance=ExtResource("3_n52qq")]
+
 [node name="Tiles" type="Node2D" parent="Container/Board"]
 
 [node name="QueueMap" parent="Container/Board/Tiles" instance=ExtResource("3_npmvc")]
 
 [node name="ActionContainer" type="Control" parent="Container"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
 [node name="Actions" type="HBoxContainer" parent="Container/ActionContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -54,23 +99,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
+script = ExtResource("3_fqayg")
 
-[node name="Button" type="Button" parent="Container/ActionContainer/Actions"]
+[node name="Move" type="Button" parent="Container/ActionContainer/Actions"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+text = "Move"
 
-[node name="Button2" type="Button" parent="Container/ActionContainer/Actions"]
+[node name="Propose" type="Button" parent="Container/ActionContainer/Actions"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+text = "Propose"
 
-[node name="Button3" type="Button" parent="Container/ActionContainer/Actions"]
+[node name="Skip" type="Button" parent="Container/ActionContainer/Actions"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-
-[node name="Button4" type="Button" parent="Container/ActionContainer/Actions"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="Button5" type="Button" parent="Container/ActionContainer/Actions"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
+text = "Skip"

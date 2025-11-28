@@ -3,6 +3,8 @@ extends Control
 
 @onready var board = $Container/Board
 
+@onready var info_bar = $Container/InfoBarContainer/InfoBar
+
 
 func _ready() -> void:
 	EventBusNomic.turn_started.connect(start_turn)
@@ -15,11 +17,11 @@ func init() -> void:
 
 
 func start_night() -> void:
-	pass
+	info_bar.update()
 
 
 func start_turn() -> void:
-	pass
+	info_bar.update()
 
 
 func end_turn() -> void:
