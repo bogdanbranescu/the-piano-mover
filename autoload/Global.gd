@@ -16,12 +16,17 @@ var BOARD_SIZE := Vector2i(6, 6)
 
 # Singletons
 var Game: Node
-var NomicSystem: Node
+var State: Node
 var Scheduler: Node
+var NomicSystem: Node
+
+var NomicUI: Node
+
 
 var system_paths = {
 	# CORE
 	scheduler_path = "res://modes/core/Scheduler.gd",
+	state_chart_path = "res://core/StateChart.tscn",
 	# NOMIC
 	nomic_system_path = "res://modes/nomic/NomicSystem.tscn",
 	board_system_path = "res://modes/nomic/BoardSystem.gd",

@@ -2,6 +2,7 @@ extends Node
 
 
 @onready var Board: Node
+@onready var PlayerManager: Node
 
 @onready var required = {
 	"BoardSystem": [BoardSystem, "."],
@@ -9,7 +10,7 @@ extends Node
 	"RuleManager": [Global.system_paths.rule_manager_path, "."],
 }
 
-var TURN_LIMIT := 5
+var TURN_LIMIT := 20
 
 var night_idx := 0
 var turn_idx := 0
@@ -17,6 +18,8 @@ var turn_idx := 0
 
 func _ready() -> void:
 	Global.NomicSystem = self
+
+	Debug.input_u.connect(end_turn) # TODO remove when not testing
 
 	init_systems()
 
@@ -36,12 +39,13 @@ func init_systems() -> void:
 		new_system.set_owner(self)
 	
 	Board = get_node("BoardSystem") # TODO CLEAN THIS UP???
+	PlayerManager = get_node("PlayerManager")
 
 
 func start_night() -> void:
 	print("NIGHT ", night_idx)
 	
-	var player_selection = get_node("PlayerManager").init_players()
+	var player_selection = PlayerManager.init_players()
 	Board.setup_players(player_selection)
 
 	turn_idx = 0
@@ -52,6 +56,7 @@ func start_night() -> void:
 
 func start_turn() -> void:
 	print("\tTURN  ", turn_idx)
+	Board.turn_order.compute(Board.board_data)
 
 	EventBusNomic.turn_started.emit()
 
@@ -71,8 +76,3 @@ func end_night() -> void:
 	start_night()
 
 	EventBusNomic.night_ended.emit()
-
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("action_down"):
-		end_turn()

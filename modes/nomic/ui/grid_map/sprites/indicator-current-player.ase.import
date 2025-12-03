@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.spriteframes"
 type="SpriteFrames"
 uid="uid://otr87iq0at5d"
-path="res://.godot/imported/indicator-current-player.ase-463361a882e730aa74275152b959e1d6.res"
+path="res://.godot/imported/indicator-current-player.ase-c0f47789fa196964a0462f926729dc3c.res"
 
 [deps]
 
-source_file="res://modes/nomic/ui/queue_map/sprites/indicator-current-player.ase"
-dest_files=["res://.godot/imported/indicator-current-player.ase-463361a882e730aa74275152b959e1d6.res"]
+source_file="res://modes/nomic/ui/grid_map/sprites/indicator-current-player.ase"
+dest_files=["res://.godot/imported/indicator-current-player.ase-c0f47789fa196964a0462f926729dc3c.res"]
 
 [params]
 

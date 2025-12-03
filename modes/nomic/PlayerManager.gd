@@ -16,22 +16,20 @@ var player_selection = [
 var order: Array
 var queue: Array
 
-var active_player_count := 1
-var active_players: Array
+var controllable_player_count := 1
+var controllable_players: Array
 
 
 func _ready() -> void:
-	init_players()
+	pass
 
 
 func init_players() -> Array:
 	# TODO Load player_selection from some meta-progression state tracker
 	var all_players = player_selection.duplicate()
-	assign_active_players(all_players)
-	init_queue()
+	assign_controllable_players(all_players)
 
-	print(active_players)
-	print(queue)
+	print(controllable_players)
 
 	for p in player_selection:
 		var data = load(Global.data_paths.players + Global.player_data[p])
@@ -42,19 +40,15 @@ func init_players() -> Array:
 	return player_selection as Array
 
 
-func assign_active_players(available_players) -> void:
-	for i in range(active_player_count):
+func get_player(player_id: int):
+	return players.get_children(player_id).filter(
+		func(x): return x.data.id == player_id
+	)[0]
+
+
+func assign_controllable_players(available_players) -> void:
+	controllable_players = []
+	for i in range(controllable_player_count):
 		var pick = randi_range(0, available_players.size() - 1)
-		active_players.append(available_players[pick])
+		controllable_players.append(available_players[pick])
 		available_players.remove_at(pick)
-
-
-func init_queue() -> void:
-	order = player_selection.duplicate()
-	order.shuffle()
-	queue = order.duplicate()
-	queue += queue
-
-
-func update_queue() -> void:
-	pass

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d04hntgppe7xo" path="res://modes/nomic/ui/NomicUI.gd" id="1_e7kp2"]
 [ext_resource type="Script" uid="uid://khe0w3fsb8gg" path="res://modes/nomic/ui/hud/InfoBar.gd" id="2_fqayg"]
+[ext_resource type="Script" uid="uid://cl5squd8qyd2p" path="res://modes/nomic/ui/InitiativeDisplay.gd" id="3_5w2fe"]
 [ext_resource type="Script" uid="uid://psde1l1op4gb" path="res://modes/nomic/ui/hud/TurnActionsUI.gd" id="3_fqayg"]
-[ext_resource type="PackedScene" uid="uid://dcockya84vv7x" path="res://modes/nomic/ui/queue_map/GridMap.tscn" id="3_n52qq"]
-[ext_resource type="PackedScene" uid="uid://i1hkkcdws0av" path="res://modes/nomic/ui/queue_map/QueueMap.tscn" id="3_npmvc"]
+[ext_resource type="PackedScene" uid="uid://dcockya84vv7x" path="res://modes/nomic/ui/grid_map/GridMap.tscn" id="3_n52qq"]
 
 [node name="NomicUI" type="Control"]
 layout_mode = 3
@@ -22,10 +22,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="InfoBarContainer" type="Control" parent="Container"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="InfoBar" type="HBoxContainer" parent="Container/InfoBarContainer"]
 layout_mode = 1
@@ -60,27 +61,27 @@ custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 
 [node name="InitiativeDisplay" type="Control" parent="Container"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
+script = ExtResource("3_5w2fe")
 
-[node name="Players" type="HBoxContainer" parent="Container/InitiativeDisplay"]
+[node name="Initiatives" type="HBoxContainer" parent="Container/InitiativeDisplay"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Board" type="Control" parent="Container"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 6
 
 [node name="GridMap" parent="Container/Board" instance=ExtResource("3_n52qq")]
-
-[node name="Tiles" type="Node2D" parent="Container/Board"]
-
-[node name="QueueMap" parent="Container/Board/Tiles" instance=ExtResource("3_npmvc")]
 
 [node name="ActionContainer" type="Control" parent="Container"]
 custom_minimum_size = Vector2(0, 60)
@@ -97,6 +98,8 @@ offset_top = -4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
+focus_behavior_recursive = 2
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("3_fqayg")
@@ -115,3 +118,10 @@ text = "Propose"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Skip"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 190.0
+offset_right = 180.0
+offset_bottom = 360.0

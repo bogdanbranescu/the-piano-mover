@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.static-texture"
 type="PortableCompressedTexture2D"
 uid="uid://bagkd0bhwahnr"
-path="res://.godot/imported/dummy-tile.ase-ebb2b50b72a758f83a69c1683fc23211.res"
+path="res://.godot/imported/dummy-tile.ase-cdaf5455f2b179a87a34a31a1128141f.res"
 
 [deps]
 
-source_file="res://modes/nomic/ui/queue_map/sprites/dummy-tile.ase"
-dest_files=["res://.godot/imported/dummy-tile.ase-ebb2b50b72a758f83a69c1683fc23211.res"]
+source_file="res://modes/nomic/ui/grid_map/sprites/dummy-tile.ase"
+dest_files=["res://.godot/imported/dummy-tile.ase-cdaf5455f2b179a87a34a31a1128141f.res"]
 
 [params]
 

@@ -1,6 +1,9 @@
 extends Node
 
 
+signal mode_entered
+signal mode_exited
+
 signal turn_phase_started
 signal turn_phase_ended
 

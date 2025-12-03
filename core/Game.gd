@@ -5,6 +5,7 @@ var current_mode = Refs.GAME_MODE.NOMIC
 
 
 var required_global = [
+	[States, "."],
 	[EventScheduler, "."],
 ]
 
@@ -28,6 +29,9 @@ var time := 0.0
 
 func _ready() -> void:
 	Global.Game = self
+
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) # TODO Show when using mouse
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	init_systems()
 

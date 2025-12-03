@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.static-texture"
 type="PortableCompressedTexture2D"
 uid="uid://cumh336u3mrq6"
-path="res://.godot/imported/board-background.ase-407ca06360f495cbd4454ef45cecc99c.res"
+path="res://.godot/imported/board-background.ase-fb82fb54dbc0a82bd067946546be13e3.res"
 
 [deps]
 
-source_file="res://modes/nomic/ui/queue_map/sprites/board-background.ase"
-dest_files=["res://.godot/imported/board-background.ase-407ca06360f495cbd4454ef45cecc99c.res"]
+source_file="res://modes/nomic/ui/grid_map/sprites/board-background.ase"
+dest_files=["res://.godot/imported/board-background.ase-fb82fb54dbc0a82bd067946546be13e3.res"]
 
 [params]
 

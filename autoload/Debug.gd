@@ -12,6 +12,14 @@ signal input_o
 signal input_p
 
 
+func _ready() -> void:
+    input_p.connect(check_focus)
+
+
+func check_focus() -> void:
+    print(get_viewport().gui_get_focus_owner())
+
+
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("force_quit"):
         get_tree().quit()
@@ -31,5 +39,5 @@ func _input(event: InputEvent) -> void:
         input_i.emit()
     if event.is_action_pressed("debug_update_o"):
         input_o.emit()
-    if event.is_action_pressed("debug_update_p"):
+    if event.is_action_pressed("debug_update_p"): # FOCUS
         input_p.emit()

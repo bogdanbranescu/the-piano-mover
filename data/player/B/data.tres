@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://cl6i4omuivkwm"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=4 format=3 uid="uid://cl6i4omuivkwm"]
 
 [ext_resource type="Texture2D" uid="uid://lk5gdgj3pjv7" path="res://data/player/B/board-piece.ase" id="1_vgywi"]
 [ext_resource type="Script" uid="uid://cpo6hyjtbohww" path="res://data/PlayerData.gd" id="1_vixnh"]
+[ext_resource type="Texture2D" uid="uid://dsd4qjduubuap" path="res://data/player/B/initiative-symbol.ase" id="2_fsed8"]
 
 [resource]
 script = ExtResource("1_vixnh")
 id = 1
 player_name = "BBB"
 board_piece = ExtResource("1_vgywi")
+initiative_symbol = ExtResource("2_fsed8")
 metadata/_custom_type_script = "uid://cpo6hyjtbohww"

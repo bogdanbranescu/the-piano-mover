@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://dnycrg5rddyln"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=4 format=3 uid="uid://dnycrg5rddyln"]
 
 [ext_resource type="Script" uid="uid://cpo6hyjtbohww" path="res://data/PlayerData.gd" id="1_ijjd7"]
 [ext_resource type="Texture2D" uid="uid://cbfia76o1tpr3" path="res://data/player/D/board-piece.ase" id="1_spnis"]
+[ext_resource type="Texture2D" uid="uid://d4hxvdpxgnpts" path="res://data/player/D/initiative-symbol.ase" id="2_snkux"]
 
 [resource]
 script = ExtResource("1_ijjd7")
 id = 3
 player_name = "Demon"
 board_piece = ExtResource("1_spnis")
+initiative_symbol = ExtResource("2_snkux")
 metadata/_custom_type_script = "uid://cpo6hyjtbohww"
